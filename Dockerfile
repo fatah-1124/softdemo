@@ -22,7 +22,7 @@ RUN a2enmod rewrite
 COPY . /var/www/html
 WORKDIR /var/www/html
 RUN composer install --optimize-autoloader --no-dev --no-interaction
-RUN chmod -R 755 writable/
+RUN chown -R www-data:www-data writable/ && chmod -R 775 writable/
 EXPOSE 80
 
 CMD ["bash", "-c", "\
