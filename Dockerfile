@@ -24,4 +24,11 @@ WORKDIR /var/www/html
 RUN composer install --optimize-autoloader --no-dev --no-interaction
 RUN chmod -R 755 writable/
 EXPOSE 80
-CMD sed -i "s/80/$PORT/g" /etc/apache2/ports.conf /etc/apache2/sites-enabled/000-default.conf && apache2-foreground
+
+CMD ["bash", "-c", "\
+    a2dismod mpm_event mpm_worker || true; \
+    rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* || true; \
+    a2enmod mpm_prefork; \
+    sed -i \"s/80/$PORT/g\" /etc/apache2/ports.conf /etc/apache2/sites-enabled/000-default.conf; \
+    apache2-foreground \
+"]
