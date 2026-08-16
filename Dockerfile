@@ -20,6 +20,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN a2enmod rewrite
 COPY . /var/www/html
+COPY railway-env.conf /etc/apache2/conf-enabled/railway-env.conf
 WORKDIR /var/www/html
 RUN composer install --optimize-autoloader --no-dev --no-interaction
 RUN chown -R www-data:www-data writable/ && chmod -R 775 writable/
