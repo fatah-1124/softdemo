@@ -1,10 +1,3 @@
-# Stage 1: build Vue
-FROM node:20 AS frontend
-WORKDIR /app
-COPY frontend/ .
-RUN npm install && npm run build
-
-# Stage 2: PHP + Apache
 FROM php:8.2-apache
 
 # Install library sistem yang dibutuhkan ext-gd
