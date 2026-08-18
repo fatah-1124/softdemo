@@ -11,11 +11,12 @@
                         <h3>Desa Klino, Kecamatan Sekar, Bojonegoro</h3> 
                         <br>
                         <div>
-                            <img src="<?=base_url('images/nakhodka.jpg') ?>" alt="foto" width="500" class="flex">
+                            <img src="<?=base_url('images/minimart.jpg') ?>" alt="foto" width="500" class="flex">
                         </div>
                         <br>
                         <p>
-                            Klik tombol login di pojok kanan atas untuk memulai
+                            Klik tombol login di pojok kanan atas untuk memulai. <br>
+                            Email: admin@gmail.com, password: 12345678.
                         </p>
                     </v-card-text>
                     
